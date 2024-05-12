@@ -1,10 +1,13 @@
+import Layout from "../../layout/Layout";
 import Header from "../../components/Header";
+import Hero from "../../components/Hero/Hero";
 
 const LandingPage = () => {
   return (
-    <div className="px-64">
+    <Layout className="px-64">
       <Header />
-    </div>
+      <Hero />
+    </Layout>
   );
 };
 
