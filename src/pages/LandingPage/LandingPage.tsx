@@ -1,7 +1,8 @@
-import Layout from "../../layout/Layout";
-import Header from "../../components/Header";
-import Hero from "../../components/Hero/Hero";
-import Footer from "../../components/Footer";
+import Layout from "@/layout/Layout";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero/Hero";
+import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
 
 const LandingPage = () => {
   return (
@@ -9,6 +10,7 @@ const LandingPage = () => {
       <Layout className="px-64">
         <Header />
         <Hero />
+        <FAQ />
       </Layout>
       <Footer />
     </>
