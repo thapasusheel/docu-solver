@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import hero from "../../assets/images/hero.png";
 
 const Hero = () => {
@@ -17,7 +18,7 @@ const Hero = () => {
         </div>
 
         <button className="my-10 px-6 py-3 bg-green-400 text-black font-semibold tracking-widest rounded-xl text-base cursor-pointer hover:bg-green-500 hover:text-black">
-          Get Started
+          <Link to="/upload-files">Get Started</Link>
         </button>
       </div>
       <div className="w-3/5">
