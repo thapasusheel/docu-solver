@@ -30,7 +30,7 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="my-10 mt-32">
+    <div id="FAQ" className="my-10 mt-32">
       <h1 className="text-5xl tracking-wide font-bold text-black flex justify-center items-center my-16 mt-24">
         Frequently Asked Questions
       </h1>

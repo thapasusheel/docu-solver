@@ -31,7 +31,7 @@ const NewsLetter = () => {
   };
 
   return (
-    <div className="mt-20 flex justify-center items-center flex-col gap-12">
+    <div id="newsletter" className="mt-20 flex justify-center items-center flex-col gap-12">
       <div className="text-5xl">
         Subscribe to Our
         <span className="text-green-500 font-extrabold"> Newsletter</span>
@@ -51,8 +51,7 @@ const NewsLetter = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="Your Email"
-            className=" py-2 px-4 w-
-            64 border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+            className=" py-2 px-4 w-64 border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
             required
           />
           <Button className="py-6 px-3 text-lg bg-green-400 text-black hover:bg-green-500">

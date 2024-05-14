@@ -10,10 +10,10 @@ const Header = () => {
       </div>
       <div className="flex justify-center items-center gap-10 text-base">
         <div className="cursor-pointer hover:text-green-500">Home</div>
-        <div className="cursor-pointer hover:text-green-500">About</div>
-        <div className="cursor-pointer hover:text-green-500">Testimonial</div>
-        <div className="cursor-pointer hover:text-green-500">FAQ</div>
-        <div className="cursor-pointer hover:text-green-500">Author</div>
+        <div className="cursor-pointer hover:text-green-500"><a href="/">About</a></div>
+        <div className="cursor-pointer hover:text-green-500"><a href="/#newsletter">Newsletter</a></div>
+        <div className="cursor-pointer hover:text-green-500"><a href="/#FAQ">FAQ</a></div>
+        <div className="cursor-pointer hover:text-green-500"><a href="/author">Author</a></div>
       </div>
       <a
         href="https://github.com/thapasusheel/docu-solver"
