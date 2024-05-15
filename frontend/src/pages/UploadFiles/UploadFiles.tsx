@@ -33,6 +33,8 @@ const UploadPage: React.FC = () => {
       variant: 'default',
       description: '✅ Files uploaded successfully!',
     });
+
+    window.location.href= "http://localhost:5173/chat"
   };
 
   return (
