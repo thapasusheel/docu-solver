@@ -3,6 +3,7 @@ import LandingPage from "../pages/LandingPage";
 
 import AuthorPage from "@/pages/AuthorPage";
 import UploadFiles from "@/pages/UploadFiles";
+import ChatPage from "@/pages/ChatPage/ChatPage";
 
 const AppRoutes = () => {
   return (
@@ -11,6 +12,7 @@ const AppRoutes = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/author" element={<AuthorPage />} />
         <Route path="/upload-files" element={<UploadFiles />} />
+        <Route path="/chat" element={<ChatPage />} />
       </Routes>
     </Router>
   );
