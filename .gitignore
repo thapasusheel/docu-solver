@@ -26,3 +26,8 @@ dist-ssr
 .env
 node_modules
 .vite/
+
+.venv
+__pycache__
+uploaded_files/
+*.pdf
