@@ -19,6 +19,5 @@ async def upload_files(file: UploadFile = File(...)):
     with open(file_location, "wb") as f:
         f.write(file.file.read())
         
-    # ingest_and_index_files(file_location)
 
     return {"info": f"file '{file.filename}' saved at '{file_location}'"}
