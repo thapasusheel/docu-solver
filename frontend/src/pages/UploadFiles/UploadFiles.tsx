@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useToast } from '@/components/ui/use-toast'; // Import useToast from the specified file
 import { HiOutlineDocumentAdd, HiOutlineX } from 'react-icons/hi'; // Import icons for file upload and removal
+import axios from "axios"
 
 const UploadPage: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -26,13 +27,32 @@ const UploadPage: React.FC = () => {
     setAnalyseButtonDisabled(updatedFiles.length === 0);
   };
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async  (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle form submission logic here
-    toast({
-      variant: 'default',
-      description: '✅ Files uploaded successfully!',
+    const formData = new FormData();
+    files.forEach((file) => {
+      formData.append('file', file);
     });
+
+    try {
+       await axios.post('http://127.0.0.1:8000/api/upload-files', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      toast({
+        variant: 'default',
+        description: '✅ Files uploaded successfully!',
+      });
+
+      window.location.href = "http://localhost:5173/chat"; // Redirect after successful upload
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        description: `❌ Error uploading file: ${error.response?.data?.detail || error.message}`,
+      });
+    }
 
     window.location.href= "http://localhost:5173/chat"
   };

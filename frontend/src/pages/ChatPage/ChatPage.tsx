@@ -2,6 +2,7 @@ import Messages from "@/components/Messages";
 import SendMessage from "@/components/SendMessage";
 import Layout from "@/layout/Layout";
 import { Message } from "@/types/Message";
+import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 
 
@@ -30,9 +31,9 @@ const ChatPage = () => {
     };
 
     const loadingMessage: Message = {
-      text: "AI is thinking",
-      sender: "NewLife",
-      username: "NewLife",
+      text: "DocuAI is thinking",
+      sender: "DocuAI",
+      username: "DocuAI",
       isLoading: true,
     };
 
@@ -42,27 +43,33 @@ const ChatPage = () => {
       loadingMessage,
     ]);
 
-    /* API CALL */
-
-    const aiMessage: Message = {
-      text: "API Call is disabled",
-      sender: "DocuAI",
-      username: "DocuAI",
-    };
-
-    setMessages((currentMessages: Message[]) => {
-      return currentMessages.map((m, index) =>
-        index === currentMessages.length - 1 ? aiMessage : m
-      );
-    });
     setMessage("");
 
+    console.log(message)
     try {
-      // API Call
-      console.log("Data added");
+      // API Call to /ask endpoint
+      const response = await axios.post('http://127.0.0.1:8000/api/ask', {
+        question: message,
+      });
+
+      console.log(response)
+      const aiResponse = response.data.answer
+
+      const aiMessage: Message = {
+        text: aiResponse,
+        sender: "DocuAI",
+        username: "DocuAI",
+      };
+
+      setMessages((currentMessages: Message[]) => {
+        return currentMessages.map((m, index) =>
+          index === currentMessages.length - 1 ? aiMessage : m
+        );
+      });
+
     } catch (error) {
       console.error("Error sending message:", error);
-      addMessage("Error occurred", "ai");
+      addMessage("Error occurred while fetching AI response", "DocuAI");
     }
   };
 
